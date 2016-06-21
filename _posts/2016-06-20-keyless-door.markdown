@@ -2,6 +2,7 @@
 title:  "Keyless Entry Front Door"
 date:   2016-06-20 11:00:00 -0500
 categories: door smarthome
+comments: true
 ---
 The first part of the project is to enable keyless entry for the front door. The door right now has a single-cylinder door handle, and no dead-bolt. I'm adding a KwikSet Downtown deadbolt, and replacing the door handle with a matching style, also from KwikSet so that they are keyed alike. Any existing deadbolt and door handle will do, though. this is purely a style choice.
 

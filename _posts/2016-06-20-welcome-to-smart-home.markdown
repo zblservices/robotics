@@ -1,7 +1,8 @@
 ---
 title:  "Welcome to the ZBL Smart Home Blog"
-date:   2016-06-20 10:00:00 -0500
+date:   2016-06-20 12:00:00 -0500
 categories: door smarthome
+comments: true
 ---
 I recently purchased a new home, and am pursuing a comprehensive home automation solution to control my locks, alarms, smoke detectors, thermostats, irrigation system, and garage doors; with geofencing and per-user presets based on time of day and who's home.
 
