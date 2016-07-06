@@ -28,12 +28,16 @@ The solution in my home was simple: Since I have no cable service, and only need
 
 My signal levels on all 16 bonded channels are now between 0.0 and 2.0 dBmV. Upstream power levels are a different story, but mine are a health 38-40 dBmV on all 4 bonded upstream channels.
 
+![Signal Power Levels]({{site.baseurl}}/images/network-levels.png)
+
 Since most people will also want to run cable boxes and other devices, I recommend running the ISP drop directly into a two-way split. One branch of that split should feed directly to your cable modem, and the other should feed a dedicated splitter which runs to the other set-top boxes in your home.
 
 ### Wireless Network
 From there, the cable modem feeds a wired gigabit router. I ran CAT-6 into my basement office and first-floor living room off that router. In each of those rooms, then, I have an 802.11AC wireless access point in bridged mode, creating a roaming network that covers the entire house.
 
 In the basement and first floor, then, I have 600+ Mbps wireless on all clients on either access point. The first-floor access point also has great coverage on the second floor. The furthest corners of my house -- the master bathroom, and my daughter's room, both achieve 50 mbps service over the wifi.
+
+![Wifi Power Level]({{site.baseurl}}/images/wifilevel.png)
 
 This means that from any point in my house, multiple clients can simultaneously consume multiple HD video streams without impacting any other device on the network.
 
