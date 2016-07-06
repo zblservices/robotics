@@ -1,5 +1,5 @@
 ---
-title:  "Home Network"
+title:  "Home Network Wiring, Configuration, and Speed Test"
 date:   2016-07-02 02:00 -0500
 categories: automation smarthome homebridge
 comments: true
