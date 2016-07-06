@@ -9,7 +9,6 @@ Since most of the devices in my home are now connected, it's really critical to 
 
 In particular, many of my friends and colleagues have commented to me that they don't get the level of throughput they pay for from our local Cable service provider (Comcast XFinity). I have their Blast! 150 mbps service, and acheive 175 mbps downloads in almost every room of my house on the wireless network.
 
-
 Here's a typical result that I just ran as I was typing this:
 
 <a href="http://www.speedtest.net/my-result/5455636260"><img src="http://www.speedtest.net/result/5455636260.png" /></a>
