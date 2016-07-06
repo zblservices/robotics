@@ -14,6 +14,10 @@ Here's a typical result that I just ran as I was typing this:
 
 <a href="http://www.speedtest.net/my-result/5455636260"><img src="http://www.speedtest.net/result/5455636260.png" /></a>
 
+And here is another, taken on my iPhone laying in bed on the second floor.
+
+<img src="http://www.speedtest.net/iphone/1700712746.png"/>
+
 So let's review the network setup...
 
 ### Cable Drop from Provider
