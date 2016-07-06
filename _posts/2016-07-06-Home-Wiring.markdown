@@ -17,7 +17,7 @@ Here's a typical result that I just ran as I was typing this:
 So let's review the network setup...
 
 ### Cable Drop from Provider
-One of the easiest, and most important things you can do, for your home internet service is actually immediately at the cable drop coming into your home from your ISP. When I bought my house, it was feeding a three-way split. Two branches fed off to the second floor of my house, and the third branch fed another two-way split for a total of four branches. One of those branches feeds the first floor, and one of those branches feeds the basement.
+One of the easiest, and most important things you can do for your home internet service is actually immediately at the cable drop coming into your home from your ISP. When I bought my house, it was feeding a three-way split. Two branches fed off to the second floor of my house, and the third branch fed another two-way split for a total of four branches. One of those branches feeds the first floor, and one of those branches feeds the basement.
 
 While there's four branches coming immediately off the cable-drop, there's actually _more_ splits in the house somewhere, because it's feeding a total of 7 in-wall COAX ports throughout the house. All of these splits lead to significant signal degredation, though, even if they're just terminal ends with no devices. When I first hooked up my cable modem, I was seeing downstream power-levels around -18 dBmV with dozens of service interruptions everyday.
 
