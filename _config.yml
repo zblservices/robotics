@@ -1,6 +1,6 @@
 # Site settings
-title: ZBL Smart Home
-description: 'Adventures in Home Automation'
+title: ZBL Robotics and Automation
+description: 'Adventures in Robotics and Home Automation'
 url: 'http://zblservices.com/robotics'
 baseurl: '/robotics/'
 disqus_shortname: zblroboticsblog
