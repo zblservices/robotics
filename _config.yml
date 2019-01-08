@@ -1,9 +1,9 @@
 # Site settings
 title: ZBL Smart Home
 description: 'Adventures in Home Automation'
-url: 'http://zblservices.com/smarthome'
-baseurl: '/smarthome/'
-disqus_shortname: zblsmarthomeblog
+url: 'http://zblservices.com/robotics'
+baseurl: '/robotics/'
+disqus_shortname: zblroboticsblog
 
 author:
   name: 'Timothy C. Fanelli'
