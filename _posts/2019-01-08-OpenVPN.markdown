@@ -1,0 +1,53 @@
+---
+title:  "Home VPN using OpenVPN and Raspberry Pi"
+date:   2018-01-08 14:00:00 -0500
+categories: vpn connectivity network
+comments: true
+---
+Introduction
+------------
+Setting up a home VPN has been on my to-do list for quite some time. A burst of inspiration and bout of insomnia over the past couple days has finally seen this come to fruition. It wasn’t particularly difficult, but it was certainly not trivial either. 
+
+I chose to implement the VPN using OpenVPN hosted an a Raspberry Pi 2 Model B. I evaluated the implementation on a BeagleBone Black Rev-C as well. Implementation on either platform was identical, since they’re both (at the time of this writing) based on Debian 9 - I was able to follow the <a href=“https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-debian-9”>excellent guide at Digital Ocean</a> with virtaully no issues. If you’re relatively new to the wonderful world of SSL certificates, the guide can be a bit overwhelming - so read through it once before you dive in. At a high level, though, here’s the steps:
+
+# Use EasyRSA to create a personal certifcate authority (CA)
+# Use EasyRSA to generated a client certificate (signed by your CA in step 1), and public/private key pair.
+# Configure the OpenVPN Server
+# Generate the Client configuration file
+# Install an OpenVPN Client on your client device, and import the client configuration file
+
+And voila! The most difficult part to follow is which commands to execute on which servers. That’s right, server*s* - as in two of them. If you’re following best practices, and the guide as it’s written, you will create the certificate authority on one machine, and setup OpenVPN on another. Since your OpenVPN server will be configured to receive connections from the public internet, you want to keep your CA physically isolated from it. In the event your VPN server is comprimised, you don’t want an attacker generating new certificates against your CA that can be used to access your network later.
+
+This separation results in a good bit of moving files between servers - and this is easy to miss if you’re just skimming the guide looking for the commands to copy and paste into a terminal. Make sure you pay attention to wether you’re supposed to be on the CA Server or the VPN Server at each step.
+
+BeagleBone vs Raspberry Pi
+--------------------------
+I did the setup first on a BeagleBone Black, since I have more than a few of them laying around - and am honestly just more familiar with them than the Raspberry Pi. I flashed the BBB to the latest Stretch IoT image available, and went through the install just fine.
+
+The first start of the OpenVPN process resulted in a strange issue, though — it failed to create the TUN network device; so even though I could connect a client, traffic didn’t route anywhere. I can’t confirm that this is what fixed it, but I read on a discussion thread somewhere that the issue would be resolved by adding `--mktun` to the openvpn command line. I tried that, and openvpn failed to start — but sure enough, when I removed it again things were working just fine.
+
+I connected my iPhone XS to the VPN, and did a quick speed-test to see how things looked. My phone was speed-testing at 340 Mbps over WiFi without the VPN, and 30 Mbps with the VPN. Ultimately I was pretty happy with that — my sole goal here is to add a layer of safety on public wifi hotspots, and also to obscure my location. 30 Mbps is more than enough for streaming, browsing, and anything I might find mysel doing - and is on par with my LTE speeds anyway, so it’s not going to be the bottleneck.
+
+Where I became concerned, though, was that OpenVPN used upwards of 75% CPU during the SpeedTest — encrypting and decrypting traffic through the tunnul. 
+
+This prompted me to port the implementation over to my Raspberry Pi Model 2B. The BBB runs a single-core 1ghz CPU, where the Pi runs a quad-core 700Mhz CPU. I figured the multiple cores would give me an advantage here.
+
+Happily during the installation, the TUN device was created as expected, requiring no additional investigation. The speed test is giving comparable throughput ... coming in at 25 Mbps. While it’s slightly slower, it still more than serves its purpose.
+
+CPU utilization was also lower — hovering around 40% — which gives me some confidence that it’ll outperform the BBB with multiple connected devices. 
+
+Opening to the Public Internet
+------------------------------ 
+The final step was to open the VPN server to the public internet. Fortunately Xfinity makes this very straight forward - they have a port forwarding interface right in their web interface. No logging directly into the router, googling for default passwords, or struggling through any foreign networking setups. 
+
+Next Steps
+----------
+My next steps here are to setup an mDNS entry with my DNS provider, CloudFlare, to map a subdomain to my home IP address. That way my OpenVPN Client configurations can reference my home’s DNS name, instead of IP, preventing me from having to regenerate the configurations anytime my IP changes.
+
+XFinity gives a 1-week lease on an IP, and I haven’t been paying attention long enough to see if it’ll renew after that long. I did reboot my router a few times, and even perform a factory restore on it, during this process - all to test that my IP remained the same, which it did. So far so good.
+
+I’ll make a separate post about the mDNS configuration later — I suspect that’ll involve a bit of BASH scripting and REST interfaces with CloudFlare.
+
+What Do You Think?
+------------------
+Leave your comments below — what kind of VPN setup do you use for personal use? What are your thoughts on rolling your own in home vs just utilizing an existing cloud VPN service? What kind of performance do you expect out of a similar setup? Would love your feedback!
