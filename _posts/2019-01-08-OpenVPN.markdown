@@ -8,7 +8,7 @@ Introduction
 ------------
 Setting up a home VPN has been on my to-do list for quite some time. A burst of inspiration and bout of insomnia over the past couple days has finally seen this come to fruition. It wasn’t particularly difficult, but it was certainly not trivial either. 
 
-I chose to implement the VPN using OpenVPN hosted an a Raspberry Pi 2 Model B. I evaluated the implementation on a BeagleBone Black Rev-C as well. Implementation on either platform was identical, since they’re both (at the time of this writing) based on Debian 9 - I was able to follow the <a href=“https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-debian-9”>excellent guide at Digital Ocean</a> with virtaully no issues. If you’re relatively new to the wonderful world of SSL certificates, the guide can be a bit overwhelming - so read through it once before you dive in. At a high level, though, here’s the steps:
+I chose to implement the VPN using OpenVPN hosted an a Raspberry Pi 2 Model B. I evaluated the implementation on a BeagleBone Black Rev-C as well. Implementation on either platform was identical, since they’re both (at the time of this writing) based on Debian 9 - I was able to follow the [excellent guide at Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-debian-9) with virtaully no issues. If you’re relatively new to the wonderful world of SSL certificates, the guide can be a bit overwhelming - so read through it once before you dive in. At a high level, though, here’s the steps:
 
 * Use EasyRSA to create a personal certifcate authority (CA)
 * Use EasyRSA to generated a client certificate (signed by your CA in step 1), and public/private key pair.
