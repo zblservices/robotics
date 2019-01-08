@@ -10,11 +10,11 @@ Setting up a home VPN has been on my to-do list for quite some time. A burst of 
 
 I chose to implement the VPN using OpenVPN hosted an a Raspberry Pi 2 Model B. I evaluated the implementation on a BeagleBone Black Rev-C as well. Implementation on either platform was identical, since they’re both (at the time of this writing) based on Debian 9 - I was able to follow the <a href=“https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-debian-9”>excellent guide at Digital Ocean</a> with virtaully no issues. If you’re relatively new to the wonderful world of SSL certificates, the guide can be a bit overwhelming - so read through it once before you dive in. At a high level, though, here’s the steps:
 
-# Use EasyRSA to create a personal certifcate authority (CA)
-# Use EasyRSA to generated a client certificate (signed by your CA in step 1), and public/private key pair.
-# Configure the OpenVPN Server
-# Generate the Client configuration file
-# Install an OpenVPN Client on your client device, and import the client configuration file
+* Use EasyRSA to create a personal certifcate authority (CA)
+* Use EasyRSA to generated a client certificate (signed by your CA in step 1), and public/private key pair.
+* Configure the OpenVPN Server
+* Generate the Client configuration file
+* Install an OpenVPN Client on your client device, and import the client configuration file
 
 And voila! The most difficult part to follow is which commands to execute on which servers. That’s right, server*s* - as in two of them. If you’re following best practices, and the guide as it’s written, you will create the certificate authority on one machine, and setup OpenVPN on another. Since your OpenVPN server will be configured to receive connections from the public internet, you want to keep your CA physically isolated from it. In the event your VPN server is comprimised, you don’t want an attacker generating new certificates against your CA that can be used to access your network later.
 
