@@ -3,7 +3,7 @@ title: ZBL Robotics and Automation
 description: 'Adventures in Robotics and Home Automation'
 url: 'http://zblservices.com/robotics'
 baseurl: '/robotics/'
-disqus_shortname: zblroboticsblog
+disqus_shortname: zbl-robotics-and-home-automation 
 
 author:
   name: 'Timothy C. Fanelli'
